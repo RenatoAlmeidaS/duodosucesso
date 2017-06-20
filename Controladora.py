@@ -20,7 +20,7 @@ class Controller():
 			escolha = input("Usar porta padrao ou outra:\n1-Padrao\n2-Digitar porta\n")
 
 		if (escolha == 1):
-			porta = 5555
+			porta = 5556
 		else:
 			porta = input("Digite a porta:\n")
 

@@ -15,18 +15,16 @@ def ler_porta():
 	else:
 		porta = input("Digite a porta:\n")
 
-
 	return porta
 
 while (True):
 
-	PORT = ler_porta()				# Porta que o Servidor esta
 	HOST = '127.0.0.1'				# Endereco IP do Servidor
 
 	tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	dest = (HOST, PORT)
 
 	try:
+		dest = (HOST, ler_porta())
 		tcp.connect(dest)
 		pass
 	except Exception as e:
@@ -36,9 +34,12 @@ while (True):
 	msg = raw_input()
 
 
-	while msg <> '\x18':
+	while msg <> 'exit':
 
 	    tcp.send (msg)
 	    msg = raw_input()
 
 	tcp.close()
+	
+	if msg == 'exit':
+		break
