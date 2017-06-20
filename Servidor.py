@@ -16,6 +16,7 @@ while True:
         while True:
             msg = con.recv(1024)
             if not msg: break
+            tcp.send(msg + 'é sua mãe\n')
             print cliente, msg
         print'Finalizando conexao do cliente', cliente
         con.close()
