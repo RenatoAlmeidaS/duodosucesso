@@ -34,15 +34,15 @@ while (True):
 		continue
 	os.system("clear")
 	msg = raw_input()
-	con, cliente = tcp.accept()
+	#con, cliente = tcp.accept()
 
 	while msg <> 'exit':
 
 	    tcp.send (msg)
 	    msg = raw_input()
-		msg2 = con.recv(1024)
-		if not msg2: break
-		print (msg2)
+		#msg2 = con.recv(1024)
+		#if not msg2: break
+		#print (msg2)
 
 	tcp.close()
 	
