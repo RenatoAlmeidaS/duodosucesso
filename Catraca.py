@@ -20,8 +20,3 @@ class JaAberta(Exception):
 
 class JaFechada(Exception):
 	pass
-
-
-c = Catraca()
-
-c.abrir()

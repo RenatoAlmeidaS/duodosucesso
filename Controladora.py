@@ -44,7 +44,3 @@ class Controller():
 			resposta = "mensagem nao catalogada"
 
 		return resposta
-
-c = Controller()
-
-print(c.ler_porta())
