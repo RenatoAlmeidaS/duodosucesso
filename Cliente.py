@@ -36,7 +36,7 @@ while (True):
 	msg = raw_input()
 	con, cliente = tcp.accept()
 
-	while msg <> '\x18':
+	while msg <> 'exit':
 
 	    tcp.send (msg)
 	    msg = raw_input()
@@ -45,3 +45,6 @@ while (True):
 		print (msg2)
 
 	tcp.close()
+	
+	if msg == 'exit':
+		break
