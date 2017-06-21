@@ -9,11 +9,14 @@ class Catraca():
 			raise JaAberta()
 
 
-	def rodar():
+	def rodar(self):
 		if(self.estado == "aberta"):
 			self.estado = "fechada"
 		else:
 			raise JaFechada()
+
+	def get_estado(self):
+		return self.estado
 
 class JaAberta(Exception):
 	pass
