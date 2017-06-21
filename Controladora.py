@@ -1,46 +1,58 @@
+import socket
 from Catraca import Catraca
 import os
-
-class Controller():
-
-	mensagem = ""
-	catraca = Catraca()
+import linecache
 
 
+mensagem = ""
+catraca = Catraca()
 
+def ler_porta(id):
 
+	arq = open('portas', 'r')
+	porta = int(linecache.getline('portas', id))
+	arq.close()
+	return porta
+
+def tratar(mensagem):
 	
-	def ler_porta(self):
+	resposta = ""
 
-		porta = 0
-		escolha = 0
+	if(mensagem == "abrir"):
+		try:
+			catraca.abrir()
+			resposta = "catraca aberta"
+		except Exception as e:
+			resposta = "catraca ja esta aberta"
 
-		while (escolha < 1 or escolha > 2):	
-			os.system("clear")	
-			escolha = input("Usar porta padrao ou outra:\n1-Padrao\n2-Digitar porta\n")
+	elif(mensagem =="estado"):
+		resposta = catraca.get_estado()
 
-		if (escolha == 1):
-			porta = 5555
-		else:
-			porta = input("Digite a porta:\n")
+	elif(mensagem == "rodar"):
+		try:
+			catraca.rodar()
+			resposta = "catraca fechada"
+		except Exception as e:
+			resposta = "catraca ja esta fechada"
+	else:
+		resposta = "mensagem nao catalogada"
 
-		return porta
+	return resposta
 
-	def tratar(mensagem):
-		
-		resposta = ""
 
-		if(mensagem == "abrir"):
-			try:
-				catraca.abrir()
-				resposta = "catraca aberta"
-			except Exception as e:
-				resposta = e.getMessage()
-
-		elif(mensagem =="aberta?"):
-			resposta = catraca.estado()
-
-		else:
-			resposta = "mensagem nao catalogada"
-
-		return resposta
+HOST = ''
+tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+orig = (HOST, ler_porta(1))
+tcp.bind(orig)
+tcp.listen(1)
+os.system("clear")
+while True:
+    con, cliente = tcp.accept()
+    print 'Concetado por', cliente
+    while True:
+        msg = con.recv(1024)
+        if not msg: 
+        	break
+        print cliente, tratar(msg)
+    print 'Finalizando conexao do cliente', cliente
+    con.close()
