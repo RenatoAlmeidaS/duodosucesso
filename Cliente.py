@@ -9,18 +9,19 @@ def ler_porta(id):
 	arq.close()
 	print(porta)
 	return porta
-
+def escolher_catraca():
+	return int(raw_input('Em qual RU quer entrar:\n'))
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 try:
-	dest = ("localhost", ler_porta(1))
+	dest = ('localhost', ler_porta(escolher_catraca()))
 	tcp.connect(dest)
 	pass
 except Exception as e:
-	raw_input ("Erro, pressione qualqer tecla para continuar\n")
+	raw_input ('Erro, pressione qualqer tecla para continuar...\n')
 
-os.system("clear")
-print("Digite 'exit' para sair")
+os.system('clear')
+print('Digite "exit" para sair')
 msg = raw_input()
 #con, cliente = tcp.accept()
 
