@@ -12,6 +12,7 @@ def ler_porta(id):
 def escolher_catraca():
 	a = int(raw_input('Em qual RU quer entrar:		--Digite "-1" para sair | "1" para RU 1 | "2" para RU 2 | "3" para RU 3--\n'))
 	while (a<>1 and a<>2 and a<>3 and a<>-1):
+		os.system("clear")
 		a = int(raw_input('Resposta inválida, tente novamente:		--Digite "-1" para sair | "1" para RU 1 | "2" para RU 2 | "3" para RU 3--\n'))
 	print ('Conectado a catraca: ' + str(a) + '		--Digite "exit" para sair--\n')
 	return a
@@ -33,6 +34,7 @@ while (True):
 		if (msg == 'exit'):
 			os.system("clear")
 			catraca = escolher_catraca()
+			continue
 		msg = msg + str(catraca)
 		tcp.send (msg)
 	tcp.close()
