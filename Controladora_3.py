@@ -43,6 +43,7 @@ mensagem = ""
 catraca = Catraca()
 HOST = ''
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+tcp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
 try:
 	orig = (HOST, ler_porta(3))
