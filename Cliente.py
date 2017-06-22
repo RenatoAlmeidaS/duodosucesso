@@ -18,12 +18,12 @@ try:
 	tcp.connect(dest)
 	pass
 except Exception as e:
-	raw_input ('Erro, pressione qualqer tecla para continuar...\n')
+	print("Erro: {}".format(e))
+	raw_input ('pressione qualqer tecla para continuar...\n')
 
 os.system('clear')
 print('Digite "exit" para sair')
 msg = raw_input()
-#con, cliente = tcp.accept()
 
 while msg <> 'exit':
 

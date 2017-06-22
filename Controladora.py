@@ -51,6 +51,7 @@ while erro:
 		tcp.bind(orig)
 		erro = False
 	except Exception as e:
+		raw_input('Erro: {}\nDigite qualquer tecla para continuar...'.format(e))
 		id_catraca += 1
 
 tcp.listen(1)
