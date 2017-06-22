@@ -3,6 +3,7 @@ import os
 import sys
 import linecache
 
+
 def ler_porta(id):
 
     arq = open('portas', 'r')
@@ -11,12 +12,11 @@ def ler_porta(id):
     return porta
 
 def tratar_mensagem(mensagem, id_catraca):
-
     tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     dest = ("localhost", ler_porta(int(id_catraca)))
     tcp.connect(dest)
     tcp.send (mensagem)
-    tcp.close()
+    #tcp.close()
 
 
 

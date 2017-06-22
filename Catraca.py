@@ -1,6 +1,7 @@
 class Catraca():
 
-	estado = "fechada"
+	def __init__(self):
+		self.estado = "fechada"
 
 	def abrir(self):
 		if(self.estado == "fechada"):

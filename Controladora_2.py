@@ -48,7 +48,7 @@ tcp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 try:
 	orig = (HOST, ler_porta(2))
 	tcp.bind(orig)
-	
+
 except Exception as e:
 	raw_input('Erro: {}\nDigite qualquer tecla para continuar...'.format(e))
 
@@ -58,16 +58,12 @@ os.system("clear")
 while True:
 
     con, cliente = tcp.accept()
-    print 'Concetado por', cliente
-    
-    while True:
-    
-        msg = con.recv(1024)
-        if (msg == 'exit'): 
-        	break
-        print cliente, tratar(msg)
-    
-    print 'Finalizando conexao do cliente', cliente
+    print 'Conectado por', cliente
+
+
+    msg = con.recv(1024)
+    if (msg == 'exit'): 
+    	break
+    print cliente, tratar(msg)
     con.close()
     
-    break

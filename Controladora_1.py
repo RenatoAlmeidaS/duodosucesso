@@ -58,17 +58,12 @@ os.system("clear")
 while True:
 
     con, cliente = tcp.accept()
-    print 'Concetado por', cliente
-    
-    while True:
-    
-        msg = con.recv(1024)
-        if (msg == 'exit'): 
-        	break
-        print cliente, tratar(msg)
+    print 'Conectado por', cliente
 
 
-    print 'Finalizando conexao do cliente', cliente
+    msg = con.recv(1024)
+    if (msg == 'exit'): 
+    	break
+    print cliente, tratar(msg)
     con.close()
     
-    break
