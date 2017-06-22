@@ -60,8 +60,9 @@ while True:
     print 'Concetado por', cliente
     while True:
         msg = con.recv(1024)
-        if not msg: 
+        if (msg == 'exit'): 
         	break
         print cliente, tratar(msg)
     print 'Finalizando conexao do cliente', cliente
     con.close()
+    break

@@ -30,4 +30,5 @@ while msg <> 'exit':
     tcp.send (msg)
     msg = raw_input()
 
+tcp.send (msg)
 tcp.close()
