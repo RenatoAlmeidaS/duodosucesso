@@ -42,8 +42,17 @@ def tratar(mensagem):
 
 HOST = ''
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-orig = (HOST, ler_porta(1))
-tcp.bind(orig)
+id_catraca = 1
+erro = True
+
+while erro:
+	try:
+		orig = (HOST, ler_porta(id_catraca))
+		tcp.bind(orig)
+		erro = False
+	except Exception as e:
+		id_catraca += 1
+
 tcp.listen(1)
 os.system("clear")
 while True:
