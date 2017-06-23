@@ -44,5 +44,5 @@ while (True):
 			break
 		msg = msg + str(catraca)
 		tcp.send (msg)
-		print 'Catraca', catraca, 'respondeu', tcp.recv(1024)
+		print 'Catraca', catraca, 'respondeu:', tcp.recv(1024)
 	tcp.close()
