@@ -20,9 +20,9 @@ def tratar(mensagem):
 	
 		try:
 			catraca.abrir()
-			resposta = "Catraca aberta"
+			resposta = "Catraca foi liberada"
 		except Exception as e:
-			resposta = "Catraca já está aberta"
+			resposta = "Catraca já está liberada"
 	
 	elif(mensagem =="estado"):
 		resposta = catraca.get_estado()
@@ -30,9 +30,9 @@ def tratar(mensagem):
 	elif(mensagem == "rodar"):
 		try:
 			catraca.rodar()
-			resposta = "Catraca fechada"
+			resposta = "Sucesso, agora a catraca está travada"
 		except Exception as e:
-			resposta = "Catraca já está fechada"
+			resposta = "Catraca está travada"
 	
 	else:
 		resposta = "Mensagem não catalogada"

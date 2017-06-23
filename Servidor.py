@@ -14,8 +14,8 @@ def ler_porta(id):
 def tratar_mensagem(mensagem, id_catraca):
 	tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	dest = ("localhost", ler_porta(int(id_catraca)))
-	print 'Enviando "', mensagem, '" para catraca ', id_catraca
 	tcp.connect(dest)
+	print 'Enviando "', mensagem, '" para catraca ', id_catraca
 	tcp.send (mensagem)
 	resposta = tcp.recv(1024)
 	print 'Resposta recebida da catraca', id_catraca,':' , resposta

@@ -1,12 +1,12 @@
 class Catraca():
-	livre = True
+	livre = 'AGUARDANDO REQUISIÇÃO'
 	def __init__(self):
 		self.estado = "fechada"
 
 	def abrir(self):
 		if(self.estado == "fechada"):
 			self.estado = "aberta"
-			self.livre = False
+			self.livre = 'EM USO'
 		else:
 			raise JaAberta()
 
@@ -14,7 +14,7 @@ class Catraca():
 	def rodar(self):
 		if(self.estado == "aberta"):
 			self.estado = "fechada"
-			self.livre = True
+			self.livre = 'AGUARDANDO REQUISIÇÃO'
 		else:
 			raise JaFechada()
 
