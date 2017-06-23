@@ -1,0 +1,43 @@
+DESENVOLVIDO PARA PYTHON 2.7
+
+Para executar, são necessários 5 terminais:
+Cliente
+Servidor
+C1
+C2
+C3
+
+C1, C2, C3 são similares, representam 3 catracas assim como tem-se 3 RU's na UFPI campus Ministro Petrônio Portela.
+
+Cliente se Conecta com Servidor por TCP (Cliente-Servidor)
+Servidor se Conecta com C1 por TCP (Cliente-Servidor)
+Servidor se Conecta com C2 por TCP (Cliente-Servidor)
+Servidor se Conecta com C3 por TCP (Cliente-Servidor)
+
+Por tanto, são 4 portas para serem escolhidas.
+
+O arquivo .txt "portas" tem 4 números, um em cada linha, no seguinte formato:
+
+Nº que C1 usa como porta do Servidor
+Nº que C2 usa como porta do Servidor
+Nº que C3 usa como porta do Servidor
+Nº que Servidor usa como porta do Servidor
+
+Por padrão, está no bloco de notas as seguintes portas:
+
+5550
+5551
+5552
+5553
+
+Foi feito dessa forma para facilitar alterar as portas utilizadas.
+
+Para utilizar portas diferentes altere os valores no bloco de notas e execute os algoritmos novamente.
+
+
+Os comandos são dados a partir da tela Cliente
+
+Assim que conectado em uma Catraca é possível dar 3 comandos:
+abrir
+rodar
+estado
