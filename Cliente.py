@@ -33,9 +33,11 @@ while (True):
 		msg = raw_input()
 		if (msg == 'exit'):
 			os.system("clear")
+			tcp.send('exitx')
 			catraca = escolher_catraca()
 			continue
 		msg = msg + str(catraca)
 		tcp.send (msg)
+		print 'Catraca', catraca, 'respondeu', tcp.recv(1024)
 	tcp.close()
 	break

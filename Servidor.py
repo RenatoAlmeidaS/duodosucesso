@@ -14,9 +14,13 @@ def ler_porta(id):
 def tratar_mensagem(mensagem, id_catraca):
 	tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	dest = ("localhost", ler_porta(int(id_catraca)))
+	print 'Enviando "', mensagem, '" para catraca ', id_catraca
 	tcp.connect(dest)
 	tcp.send (mensagem)
+	resposta = tcp.recv(1024)
+	print 'Resposta recebida da catraca', id_catraca,':' , resposta
 	tcp.close()
+	return resposta
 
 
 
@@ -36,7 +40,7 @@ while True:
 	if pid == 0:
 		#tcp.close()
 
-		print 'Conectado por', cliente
+		print 'Conectado ao Cliente ', cliente
 
 		while True:
 			msg = con.recv(1024)
@@ -44,9 +48,9 @@ while True:
 			msg = msg[:-1]
 			if msg == 'exit':
 				break
-			tratar_mensagem(msg, id_catraca)
+			con.send(tratar_mensagem(msg, id_catraca))
 		
-		print 'Finalizando conexao do cliente', cliente
+		print 'Finalizando conexão com cliente', cliente
 		con.close()
 	
 	else:
