@@ -10,10 +10,12 @@ def ler_porta(id):
 	return porta
 
 def escolher_catraca():
-	a = int(raw_input('Em qual RU quer entrar:		--Digite "-1" para sair | "1" para RU 1 | "2" para RU 2 | "3" para RU 3--\n'))
+	print 'Em qual RU quer entrar:\n\n'
+	a = int(raw_input('--Digite "-1" para sair | "1" para RU 1 | "2" para RU 2 | "3" para RU 3--\n'))
 	while (a<>1 and a<>2 and a<>3 and a<>-1):
 		os.system("clear")
-		a = int(raw_input('Resposta inválida, tente novamente:		--Digite "-1" para sair | "1" para RU 1 | "2" para RU 2 | "3" para RU 3--\n'))
+		print ("Resposta inválida, tente novamente:\n\n")
+		a = int(raw_input('--Digite "-1" para sair | "1" para RU 1 | "2" para RU 2 | "3" para RU 3--\n'))
 	if (a == -1):
 		raw_input("Execução Terminada\n\nTrabalho Final de Redes 1\n\nDupla:\nRenato de Almeida Silva\nWalace Tales Ferreira dos Santos\n\nProfessor:  Weslley Emmanuel Martins Lima\n\nUFPI 2017.1\n\nCiência da Computação..........................................................")
 		exit(0)

@@ -22,8 +22,8 @@ def tratar_mensagem(mensagem, id_catraca):
 	tcp.close()
 	return resposta
 
-
-
+os.system("clear")
+print '||||||||SERVIDOR||||||||'
 rel_cli_cat = {1:0, 2:0, 3:0}
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
