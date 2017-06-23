@@ -1,4 +1,9 @@
 DESENVOLVIDO PARA PYTHON 2.7
+DESENVOLVIDO PARA LINUX (UBUNTU, MINT)
+
+Foi usado o interpretador de python "pypy" no lugar do interpretador "python". No interpretador "python", os códigos podem não executar por causa dos acentos. Aconselho fazer o Download do interpretador "pypy" para python 2.7 com o comando:
+
+sudo apt-get install pypy
 
 Para executar, são necessários 5 terminais:
 Cliente
